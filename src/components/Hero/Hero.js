@@ -27,7 +27,7 @@ const Hero = props => {
           color: ${theme.text.color.primary.inverse};
           display: flex;
           flex-flow: column nowrap;
-          justify-content: center;
+          justify-content: flex-end;
           min-height: 100vh;
           height: 100px;
           padding: ${theme.space.inset.l};
