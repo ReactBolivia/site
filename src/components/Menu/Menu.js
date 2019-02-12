@@ -4,7 +4,8 @@ require("core-js/fn/array/from");
 
 import { FaHome } from "react-icons/fa/";
 import { FaSearch } from "react-icons/fa/";
-import { FaEnvelope } from "react-icons/fa/";
+import { FaEnvelope, FaRegRegistered } from "react-icons/fa/";
+
 import { FaTag } from "react-icons/fa/";
 
 import Item from "./Item";
@@ -25,6 +26,7 @@ class Menu extends React.Component {
     this.items = [
       { to: "/", label: "Home", icon: FaHome },
       ...pages,
+      { to: "/register/", label: "Register", icon: FaRegRegistered },
       { to: "/contact/", label: "Contact", icon: FaEnvelope }
     ];
 
