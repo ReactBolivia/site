@@ -3,19 +3,19 @@ import React from "react";
 
 import { ThemeContext } from "../layouts";
 import Article from "../components/Article";
-import Register from "../components/Register";
+import Sedes from "../components/Sedes/Sedes";
 import Headline from "../components/Article/Headline";
 
-const RegisterPage = props => {
+const SedesPage = props => {
   return (
     <React.Fragment>
       <ThemeContext.Consumer>
         {theme => (
           <Article theme={theme}>
             <header>
-              <Headline title="Registro de Participantes" theme={theme} />
+              <Headline title="Sedes" theme={theme} />
             </header>
-            <Register theme={theme} />
+            <Sedes />
           </Article>
         )}
       </ThemeContext.Consumer>
@@ -23,4 +23,4 @@ const RegisterPage = props => {
   );
 };
 
-export default RegisterPage;
+export default SedesPage;
