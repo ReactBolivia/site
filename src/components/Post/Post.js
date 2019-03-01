@@ -10,13 +10,13 @@ import Author from "./Author";
 import Comments from "./Comments";
 import NextPrev from "./NextPrev";
 
-const Share = asyncComponent(() =>
-  import("./Share")
-    .then(module => {
-      return module.default;
-    })
-    .catch(error => {})
-);
+// const Share = asyncComponent(() =>
+//   import("./Share")
+//     .then(module => {
+//       return module.default;
+//     })
+//     .catch(error => {})
+// );
 
 const Post = props => {
   const {
@@ -41,7 +41,6 @@ const Post = props => {
       </header>
       <Bodytext html={html} theme={theme} />
       <footer>
-        <Share post={post} theme={theme} />
         <Author note={authornote} theme={theme} />
         <NextPrev next={nextPost} prev={prevPost} theme={theme} />
         <Comments slug={slug} facebook={facebook} theme={theme} />
