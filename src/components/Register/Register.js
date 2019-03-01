@@ -50,7 +50,8 @@ const Register = props => {
       createQr: "NO"
     };
     console.log("dataRegister", dataRegister);
-    axios.post("https://www.isoc.bo/isocbo/public/api/registro", dataRegister)
+    axios
+      .post("https://www.isoc.bo/isocbo/public/api/registro", dataRegister)
       .then(function(response) {
         console.log("response Register", response);
       })
