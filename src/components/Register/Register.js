@@ -45,16 +45,17 @@ const Register = props => {
     console.log("sendM");
     let dataRegister = {
       ...values,
-      sector_id: null,
-      evento_id: 7
+      eventoId: 7,
+      typeRequest: "ajax",
+      createQr: "NO"
     };
     console.log("dataRegister", dataRegister);
-    axios.post("https://www.isoc.bo/isocbo/public/api/v1/register", dataRegister)
+    axios.post("https://www.isoc.bo/isocbo/public/api/registro", dataRegister)
       .then(function(response) {
-        console.log(response);
+        console.log("response Register", response);
       })
       .catch(function(error) {
-        console.log(error);
+        console.log("error Register", error);
       });
   }
 
@@ -80,7 +81,7 @@ const Register = props => {
                 data-netlify-honeypot="bot-field"
               >
                 <FormItem label="Nombres" style={{ width: "100%" }}>
-                  {getFieldDecorator("nombre", {
+                  {getFieldDecorator("nombres", {
                     rules: [
                       {
                         required: true,
@@ -88,7 +89,7 @@ const Register = props => {
                         whitespace: true
                       }
                     ]
-                  })(<Input name="nombre" style={{ width: "100%" }} />)}
+                  })(<Input name="nombres" style={{ width: "100%" }} />)}
                 </FormItem>
                 <FormItem label="Apellidos" style={{ width: "100%" }}>
                   {getFieldDecorator("apellidos", {
@@ -114,7 +115,7 @@ const Register = props => {
                   })(<InputNumber name="edad" />)}
                 </FormItem>
                 <FormItem label="Genero">
-                  {getFieldDecorator("genero_id", {
+                  {getFieldDecorator("sexo", {
                     rules: [
                       {
                         required: true,
@@ -124,8 +125,8 @@ const Register = props => {
                     ]
                   })(
                     <Select name="genero_id" style={{ width: "100%" }}>
-                      <Option value="1">Masculino</Option>
-                      <Option value="2">Femenino</Option>
+                      <Option value="M">Masculino</Option>
+                      <Option value="F">Femenino</Option>
                     </Select>
                   )}
                 </FormItem>
