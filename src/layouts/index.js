@@ -13,6 +13,7 @@ export const ScreenWidthContext = React.createContext(0);
 export const FontLoadedContext = React.createContext(false);
 
 import themeObjectFromYaml from "../theme/theme.yaml";
+import "antd/dist/antd.css";
 
 class Layout extends React.Component {
   constructor() {

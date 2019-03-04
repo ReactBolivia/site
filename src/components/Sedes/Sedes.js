@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "antd";
 import Meetups from "react-meetup-meetups";
-
+import uuid from "uuid";
 const { Meta } = Card;
 import "antd/lib/card/style/index.css";
 
@@ -15,7 +15,7 @@ const Sedes = props => {
     console.log("results", results);
     return results.map(({ time, name, event_url }) => {
       return (
-        <div style={{ margin: 5 }}>
+        <div style={{ margin: 5 }} key={uuid.v4()}>
           {fmtTime(time)} : <a href={event_url}>{name}</a>
         </div>
       );
@@ -36,7 +36,7 @@ const Sedes = props => {
       <br />
       <Meetups
         apiKey={"1f3b16d413321d40731c5644591011"}
-        meetupsIds={[259217347]}
+        meetupsIds={["259217347"]}
         render={renderMeetups}
         loading={() => <div>Loading...</div>}
       />

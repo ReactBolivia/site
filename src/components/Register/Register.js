@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: 0 */
 
 import { navigate } from "gatsby";
-import { Divider, Select, Input, InputNumber } from "antd";
+import { Divider, Select, Input, InputNumber, notification, Icon } from "antd";
 
 import Button from "antd/lib/button";
 import Form from "antd/lib/form";
@@ -9,13 +9,6 @@ import Form from "antd/lib/form";
 import PropTypes from "prop-types";
 import React from "react";
 const FormItem = Form.Item;
-const { TextArea } = Input;
-import "antd/lib/form/style/index.css";
-import "antd/lib/input/style/index.css";
-import "antd/lib/input-number/style/index.css";
-import "antd/lib/button/style/index.css";
-import "antd/lib/select/style/index.css";
-import "antd/lib/divider/style/index.css";
 import { ThemeContext } from "../../layouts";
 
 import axios from "axios";
@@ -50,13 +43,23 @@ const Register = props => {
       createQr: "NO"
     };
     console.log("dataRegister", dataRegister);
+
     axios
       .post("https://www.isoc.bo/isocbo/public/api/registro", dataRegister)
       .then(function(response) {
         console.log("response Register", response);
+        notification["success"]({
+          message: "Mensaje",
+          description: "Los datos fueron guardados con exito, muchas gracias."
+        });
       })
       .catch(function(error) {
         console.log("error Register", error);
+        notification["error"]({
+          message: "Mensaje",
+          description:
+           "Ocurrio un problema, por favor intente nuevamente, si el error persiste envie un mensaje a comunity.react.bolivia@gmail.com."
+        });
       });
   }
 
