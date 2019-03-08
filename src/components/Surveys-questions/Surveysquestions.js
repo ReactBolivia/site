@@ -267,7 +267,7 @@ const Surveyquestions = props => {
                           <Checkbox value="Mesa 4">Entre icebergs, ML y el Titanic</Checkbox>
                         </Col>
                         <br />
-                        <Col span={8} style={{ width: "100%"}}>
+                        <Col span={8} style={{ width: "100%" }}>
                           <Checkbox value="Mesa 5">
                             Usando React Native para el desarrollo de apps móviles
                           </Checkbox>
@@ -328,7 +328,7 @@ const Surveyquestions = props => {
                   </h3>
                 </span>
                 <FormItem
-                  label="¿Estarías interesado en tomar un curso de React impartido por la comunidad React Bolivia?" 
+                  label="¿Estarías interesado en tomar un curso de React impartido por la comunidad React Bolivia?"
                   style={{ width: "100%", padding: "3px" }}
                 >
                   {getFieldDecorator("pregunta_11", {
