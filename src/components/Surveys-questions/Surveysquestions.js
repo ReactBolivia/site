@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import React from "react";
 const FormItem = Form.Item;
 import { ThemeContext } from "../../layouts";
-
+import { navigate } from "gatsby"
 import axios from "axios";
 
 const Option = Select.Option;
@@ -24,6 +24,7 @@ const Surveyquestions = props => {
   }
 
   function handleSubmit(e) {
+
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
@@ -35,7 +36,7 @@ const Surveyquestions = props => {
 
   function sendSarveys(values) {
     console.log("sendM");
-
+    let response
     let val = [
       { id: 9, respuesta: values.pregunta_1 },
       { id: 10, respuesta: values.pregunta_2 },
@@ -65,6 +66,17 @@ const Surveyquestions = props => {
           message: "Mensaje",
           description: "Los datos fueron guardados con exito, muchas gracias."
         });
+
+        if (response.status == 200) {
+          setTimeout(
+            function() {
+              navigate("/");
+            }
+          .bind(this),
+          1000
+          );
+        };
+
       })
       .catch(function(error) {
         console.log("error Register", error);
