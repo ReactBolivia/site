@@ -108,7 +108,6 @@ exports.createPages = ({ graphql, actions }) => {
             }
           });
         });
-
         // Create posts
         const posts = items.filter(item => item.node.fields.source === "posts");
         posts.forEach(({ node }, index) => {
