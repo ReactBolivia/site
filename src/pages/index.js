@@ -28,21 +28,25 @@ class IndexPage extends React.Component {
         },
         site: {
           siteMetadata: { facebook }
+        },
+        logoReact: {
+          resize: { src: allLogo }
         }
       }
     } = this.props;
 
-    const backgrounds = {
-      desktop,
-      tablet,
-      mobile
-    };
-
+    const backgrounds = { desktop, tablet, mobile };
+    const logo = { allLogo };
     return (
       <React.Fragment>
         <ThemeContext.Consumer>
           {theme => (
-            <Hero scrollToContent={this.scrollToContent} backgrounds={backgrounds} theme={theme} />
+            <Hero
+              scrollToContent={this.scrollToContent}
+              backgrounds={backgrounds}
+              theme={theme}
+              logo={logo}
+            />
           )}
         </ThemeContext.Consumer>
 
@@ -109,17 +113,22 @@ export const query = graphql`
         }
       }
     }
-    bgDesktop: imageSharp(fluid: { originalName: { regex: "/reactbg/" } }) {
+    logoReact: imageSharp(fluid: { originalName: { regex: "/ReactDark/" } }) {
+      resize(width: 250, height: 250, quality: 100, cropFocus: CENTER) {
+        src
+      }
+    }
+    bgDesktop: imageSharp(fluid: { originalName: { regex: "/backgroundGalaxy/" } }) {
       resize(width: 1200, quality: 90, cropFocus: CENTER) {
         src
       }
     }
-    bgTablet: imageSharp(fluid: { originalName: { regex: "/reactbg/" } }) {
+    bgTablet: imageSharp(fluid: { originalName: { regex: "/backgroundGalaxy/" } }) {
       resize(width: 800, height: 1100, quality: 90, cropFocus: CENTER) {
         src
       }
     }
-    bgMobile: imageSharp(fluid: { originalName: { regex: "/reactbg/" } }) {
+    bgMobile: imageSharp(fluid: { originalName: { regex: "/backgroundGalaxy/" } }) {
       resize(width: 450, height: 850, quality: 90, cropFocus: CENTER) {
         src
       }

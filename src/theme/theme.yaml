@@ -63,6 +63,7 @@ color:
     darkActive: '#709425'
   special:
     attention: &color-special-attention orange
+  button: '#fe4f4d'
 # FONT
 font:
   # font options

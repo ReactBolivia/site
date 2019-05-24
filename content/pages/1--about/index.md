@@ -2,7 +2,7 @@
 title: Acerca De
 ---
 
-TEn ReactBoliva, somos un grupo de apasionados del desarrollo web y del javascript que nos gusta siempre aprender mas y compartir nuestros conocimientos. React simboliza nuestra amor por javascript haciendo posible construir interfaces geniales y siendo ahora la librería mas descargada:
+En ReactBoliva, somos un grupo de apasionados del desarrollo web y del javascript que nos gusta siempre aprender mas y compartir nuestros conocimientos. React simboliza nuestra amor por javascript haciendo posible construir interfaces geniales y siendo ahora la librería mas descargada:
 
 [React vs La Competencia](http://www.npmtrends.com/@angular/core-vs-angular-vs-react-vs-vue)
 
