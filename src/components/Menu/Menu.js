@@ -20,11 +20,11 @@ class Menu extends React.Component {
     }));
 
     this.items = [
-      { to: "/", label: "Home", icon: FaHome },
+      { to: "/", label: "Inicio", icon: FaHome },
       ...pages,
       // { to: "/register/", label: "Registro", icon: FaRegRegistered },
       { to: "/sedes/", label: "Sedes", icon: FaReact },
-      { to: "/contact/", label: "Contact", icon: FaEnvelope }
+      { to: "/contact/", label: "Contactos", icon: FaEnvelope }
       // { to: "/surveys/", label: "Encuestas", icon: FaEnvelope }
     ];
 
