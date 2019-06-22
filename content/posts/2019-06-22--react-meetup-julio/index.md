@@ -9,6 +9,8 @@ Hola Comunidad ReactBolivia, les comentamos que el día de **12 de Julio de 2019
 
 Tendremos charlas estupendas y la colaboración de otras comunidades
 
+**Ciudad: La Paz - Bolivia**
+
 **Lugar: Ambientes del LinkCowork**
 
 **Horario: 18:00 - 20:30**
