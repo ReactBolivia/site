@@ -135,7 +135,7 @@ Hero.propTypes = {
   scrollToContent: PropTypes.func.isRequired,
   backgrounds: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  logo: PropTypes.string.isRequired
+  logo: PropTypes.object.isRequired
 };
 
 export default Hero;
