@@ -4327,6 +4327,24 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+email-chk@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/email-chk/-/email-chk-1.0.2.tgz#8e825cf3ba802e1474ee7d7257214ef79d913eba"
+  integrity sha512-/+igh+8EJvsGL938w+TJmSyJvBbOQyYaE6BCVdFSuhuZTm/tM33mtWKNLV0VF0t0y3yej0jC9zPPvFx8SgycXg==
+  dependencies:
+    email-regex "^1.0.0"
+    pify "^3.0.0"
+
+email-regex@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/email-regex/-/email-regex-1.0.0.tgz#16c08f1fa8310907090127430a68562728bd029b"
+  integrity sha1-FsCPH6gxCQcJASdDCmhWJyi9Aps=
+
+email-validator@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/email-validator/-/email-validator-2.0.4.tgz#b8dfaa5d0dae28f1b03c95881d904d4e40bfe7ed"
+  integrity sha512-gYCwo7kh5S3IDyZPLZf6hSS0MnZT8QmJFqYvbqlDZSbwdZlY6QZWxJ4i/6UhITOJ4XzyI647Bm2MXKCLqnJ4nQ==
+
 "emoji-regex@>=6.0.0 <=6.1.1":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.1.1.tgz#c6cd0ec1b0642e2a3c67a1137efc5e796da4f88e"
@@ -14098,6 +14116,11 @@ vali-date@^1.0.0:
 valid-url@^1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/valid-url/-/valid-url-1.0.9.tgz#1c14479b40f1397a75782f115e4086447433a200"
+
+validate-email-hostname@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/validate-email-hostname/-/validate-email-hostname-1.0.11.tgz#226c27b570b97e8fbba436b7a86c33614e1281ea"
+  integrity sha1-ImwntXC5fo+7pDa3qGwzYU4Sgeo=
 
 validate-npm-package-license@^3.0.1:
   version "3.0.3"

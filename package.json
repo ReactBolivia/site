@@ -6,6 +6,8 @@
 	"dependencies": {
 		"antd": "^3.7.0",
 		"axios": "^0.18.0",
+		"email-chk": "^1.0.2",
+		"email-validator": "^2.0.4",
 		"fontfaceobserver": "^2.0.13",
 		"gatsby": "^2.0.21",
 		"gatsby-image": "^2.0.5",
@@ -54,6 +56,7 @@
 		"tinycolor2": "^1.4.1",
 		"typeface-open-sans": "^0.0.54",
 		"uuid": "^3.3.2",
+		"validate-email-hostname": "^1.0.11",
 		"yaml-loader": "^0.5.0"
 	},
 	"keywords": [
