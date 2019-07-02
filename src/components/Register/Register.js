@@ -10,60 +10,62 @@ import PropTypes from "prop-types";
 import React from "react";
 const FormItem = Form.Item;
 import { ThemeContext } from "../../layouts";
-import * as EmailValidator from "email-validator";
-import emailChk from "email-chk";
-
 import axios from "axios";
 
 const Option = Select.Option;
 
 class Register extends React.Component {
+  state = {
+    sendRegister: false
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     this.props.form.validateFields(async (err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
-        // sendRegister(values);
-        // const validate = await validateEmailHostname(values.correo);
-        const exists = await emailChk(values.correo);
-
-        console.log("asdasdasd", exists);
+        this.setState({
+          sendRegister: true
+        });
+        this.sendRegister(values);
       }
     });
   };
 
-  // function sendRegister(values) {
-  //   console.log("sendM");
-  //   let dataRegister = {
-  //     ...values,
-  //     eventoId: 7,
-  //     typeRequest: "ajax",
-  //     createQr: "NO"
-  //   };
-  //   console.log("dataRegister", dataRegister);
+  sendRegister = values => {
+    let dataRegister = {
+      ...values,
+      eventoId: 7,
+      typeRequest: "ajax",
+      createQr: "NO"
+    };
+    axios
+      .post("https://www.isoc.bo/isocbo/public/api/registro", dataRegister)
+      .then(function(response) {
+        console.log("response Register", response);
+        notification["success"]({
+          message: "Mensaje",
+          description: "Los datos fueron guardados con exito, muchas gracias."
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 5000);
+      })
+      .catch(function(error) {
+        console.log("error Register", error);
+        notification["error"]({
+          message: "Mensaje",
+          description:
+            "Ocurrio un problema, por favor intente nuevamente, si el error persiste envie un mensaje a comunity.react.bolivia@gmail.com."
+        });
+        setTimeout(() => {
+          navigate("/register");
+        }, 2500);
+      });
+  };
 
-  //   axios
-  //     .post("https://www.isoc.bo/isocbo/public/api/registro", dataRegister)
-  //     .then(function(response) {
-  //       console.log("response Register", response);
-  //       notification["success"]({
-  //         message: "Mensaje",
-  //         description: "Los datos fueron guardados con exito, muchas gracias."
-  //       });
-  //     })
-  //     .catch(function(error) {
-  //       console.log("error Register", error);
-  //       notification["error"]({
-  //         message: "Mensaje",
-  //         description:
-  //           "Ocurrio un problema, por favor intente nuevamente, si el error persiste envie un mensaje a comunity.react.bolivia@gmail.com."
-  //       });
-  //     });
-  // }
-
-  // function handleNetworkError(e) {
-  //   console.log("submit Error", e);
-  // }
+  handleNetworkError = e => {
+    console.log("submit Error", e);
+  };
   render() {
     const { getFieldDecorator } = this.props.form;
 
@@ -73,7 +75,7 @@ class Register extends React.Component {
           {theme => (
             <React.Fragment>
               <Alert
-                message="Informational Notes"
+                message="Información importante"
                 description="El llenado del siguiente formulario, es con el proposito de tener los datos de
                 nuestros participantes para de esa manera realizar la generación de los
                 certificados."
@@ -152,7 +154,7 @@ class Register extends React.Component {
                   </FormItem>
 
                   <FormItem>
-                    <Button type="primary" htmlType="submit">
+                    <Button disabled={this.state.sendRegister} type="primary" htmlType="submit">
                       Registrarse
                     </Button>
                   </FormItem>
