@@ -1,16 +1,19 @@
 /* eslint no-unused-vars: 0 */
 
 import { navigate } from "gatsby";
-import { Divider, Select, Input, InputNumber, notification, Icon, Alert } from "antd";
+import { Divider, Select, Input, InputNumber, notification, Spin, Alert,Radio, Typography} from "antd";
 
 import Button from "antd/lib/button";
 import Form from "antd/lib/form";
 
 import PropTypes from "prop-types";
 import React from "react";
-const FormItem = Form.Item;
+
 import { ThemeContext } from "../../layouts";
 import axios from "axios";
+
+const { Text } = Typography;
+const FormItem = Form.Item;
 
 const Option = Select.Option;
 
@@ -23,9 +26,7 @@ class Register extends React.Component {
     event.preventDefault();
     this.props.form.validateFields(async (err, values) => {
       if (!err) {
-        this.setState({
-          sendRegister: true
-        });
+        this.changeLoading(true);
         this.sendRegister(values);
       }
     });
@@ -34,21 +35,21 @@ class Register extends React.Component {
   sendRegister = values => {
     let dataRegister = {
       ...values,
-      eventoId: 7,
+      eventoId: values.meetup,
       typeRequest: "ajax",
       createQr: "NO"
     };
+    const that = this;
     axios
       .post("https://www.isoc.bo/isocbo/public/api/registro", dataRegister)
       .then(function(response) {
-        console.log("response Register", response);
         notification["success"]({
           message: "Mensaje",
           description: "Los datos fueron guardados con exito, muchas gracias."
         });
         setTimeout(() => {
           navigate("/");
-        }, 5000);
+        }, 2500);
       })
       .catch(function(error) {
         console.log("error Register", error);
@@ -57,11 +58,15 @@ class Register extends React.Component {
           description:
             "Ocurrio un problema, por favor intente nuevamente, si el error persiste envie un mensaje a comunity.react.bolivia@gmail.com."
         });
-        setTimeout(() => {
-          navigate("/register");
-        }, 2500);
+        that.changeLoading(false);
       });
   };
+
+  changeLoading = (value = false) => {
+    this.setState({
+      sendRegister: value
+    });
+  }
 
   handleNetworkError = e => {
     console.log("submit Error", e);
@@ -74,11 +79,13 @@ class Register extends React.Component {
         <ThemeContext.Consumer>
           {theme => (
             <React.Fragment>
+              <Spin spinning={this.state.sendRegister}>
               <Alert
                 message="Información importante"
                 description="El llenado del siguiente formulario, es con el proposito de tener los datos de
                 nuestros participantes para de esa manera realizar la generación de los
-                certificados."
+                certificados.
+                El correo ingresado, sera donde se enviaran los certificados."
                 type="info"
                 showIcon
               />
@@ -89,7 +96,28 @@ class Register extends React.Component {
                   onSubmit={e => this.handleSubmit(e)}
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
-                >
+                > 
+                  
+
+                  <FormItem label="Seleccione el meetup que asistira:">
+                    {getFieldDecorator("meetup", {
+                        rules: [
+                          {
+                            required: true,
+                            message: "Por favor, seleccione el meetup al que asistira!",
+                            type: "number"
+                          }
+                        ]
+                      })(
+                        <Radio.Group name='meetup' style={{ width: "100%" }} buttonStyle="solid">
+                        <Radio.Button value={12}>
+                          React and Friends - La Paz
+                        </Radio.Button>
+                        <Radio.Button value={11}>
+                          React Meetup - Santa Cruz
+                        </Radio.Button>
+                      </Radio.Group>)}
+                  </FormItem>
                   <FormItem label="Nombres" style={{ width: "100%" }}>
                     {getFieldDecorator("nombres", {
                       rules: [
@@ -145,7 +173,7 @@ class Register extends React.Component {
                       rules: [
                         {
                           required: true,
-                          message: "Please input your e-mail address!",
+                          message: "Por favor, ingrese un correo electronico valido!",
                           whitespace: true,
                           type: "email"
                         }
@@ -199,6 +227,7 @@ class Register extends React.Component {
                   }
                 `}</style>
               </div>
+              </Spin>
             </React.Fragment>
           )}
         </ThemeContext.Consumer>
