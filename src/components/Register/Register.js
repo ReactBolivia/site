@@ -110,11 +110,8 @@ class Register extends React.Component {
                         ]
                       })(
                         <Radio.Group name='meetup' style={{ width: "100%" }} buttonStyle="solid">
-                        <Radio.Button value={12}>
-                          React and Friends - La Paz
-                        </Radio.Button>
-                        <Radio.Button value={11}>
-                          React Meetup - Santa Cruz
+                        <Radio.Button value={13}>
+                          Primeros pasos con React Workshop - Cochabamba
                         </Radio.Button>
                       </Radio.Group>)}
                   </FormItem>
