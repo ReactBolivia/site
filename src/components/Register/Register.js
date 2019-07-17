@@ -12,7 +12,7 @@ import React from "react";
 import { ThemeContext } from "../../layouts";
 import axios from "axios";
 
-const { Text } = Typography;
+// const { Text } = Typography;
 const FormItem = Form.Item;
 
 const Option = Select.Option;
