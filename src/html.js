@@ -25,6 +25,7 @@ export default class HTML extends React.Component {
           <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png" />
           <link rel="icon" type="image/png" sizes="96x96" href="/icons/icon-96.png" />
+          <link href="/node_modules/antd/dist/antd.min.css" rel="stylesheet" />
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}

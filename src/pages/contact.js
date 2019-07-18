@@ -6,7 +6,7 @@ import Article from "../components/Article";
 import Contact from "../components/Contact";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
-
+import "antd/dist/antd.css";
 const ContactPage = props => {
   const {
     data: {
@@ -34,9 +34,9 @@ const ContactPage = props => {
   );
 };
 
-ContactPage.propTypes = {
-  data: PropTypes.object.isRequired
-};
+// ContactPage.propTypes = {
+//   data: PropTypes.object.isRequired
+// };
 
 export default ContactPage;
 

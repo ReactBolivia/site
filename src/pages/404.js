@@ -1,5 +1,5 @@
 import React from "react";
-
+import "antd/dist/antd.css";
 const NotFoundPage = () => (
   <div>
     <h1>NOT FOUND</h1>

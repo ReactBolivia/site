@@ -7,7 +7,7 @@ import Article from "../components/Article/";
 import Headline from "../components/Article/Headline";
 import List from "../components/List";
 import Seo from "../components/Seo";
-
+import "antd/dist/antd.css";
 const CategoryPage = props => {
   const {
     data: {

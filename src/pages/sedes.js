@@ -5,7 +5,7 @@ import { ThemeContext } from "../layouts";
 import Article from "../components/Article";
 import Sedes from "../components/Sedes/Sedes";
 import Headline from "../components/Article/Headline";
-
+import "antd/dist/antd.css";
 const SedesPage = props => {
   return (
     <React.Fragment>

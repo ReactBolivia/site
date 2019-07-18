@@ -13,7 +13,13 @@ export const ScreenWidthContext = React.createContext(0);
 export const FontLoadedContext = React.createContext(false);
 
 import themeObjectFromYaml from "../theme/theme.yaml";
+// import "antd/dist/antd.js";
 import "antd/dist/antd.css";
+
+// import "antd/lib/form/style/index.css";
+// import "antd/lib/input/style/index.css";
+// import "antd/lib/button/style/index.css";
+
 
 class Layout extends React.Component {
   constructor() {
@@ -185,7 +191,7 @@ class Layout extends React.Component {
 
 Layout.propTypes = {
   children: PropTypes.object.isRequired,
-  data: PropTypes.object.isRequired,
+  // data: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired
 };
 

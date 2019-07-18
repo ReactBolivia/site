@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "antd";
 const { Meta } = Card;
-import "antd/lib/card/style/index.css";
+// import "antd/lib/card/style/index.css";
 
 import LpImage from "./../../images/jpg/lp.jpg";
 import CbbaImage from "./../../images/jpg/cbba.jpg";

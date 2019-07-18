@@ -31,9 +31,9 @@ const PageTemplate = props => {
   );
 };
 
-PageTemplate.propTypes = {
-  data: PropTypes.object.isRequired
-};
+// PageTemplate.propTypes = {
+//   data: PropTypes.object.isRequired
+// };
 
 export default PageTemplate;
 

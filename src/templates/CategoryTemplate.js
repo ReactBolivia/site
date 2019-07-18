@@ -48,7 +48,7 @@ const CategoryTemplate = props => {
 };
 
 CategoryTemplate.propTypes = {
-  data: PropTypes.object.isRequired,
+  // data: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired
 };
 

@@ -5,7 +5,7 @@ import { ThemeContext } from "../layouts";
 import Article from "../components/Article";
 import Register from "../components/Register";
 import Headline from "../components/Article/Headline";
-
+import "antd/dist/antd.css";
 const RegisterPage = props => {
   return (
     <React.Fragment>

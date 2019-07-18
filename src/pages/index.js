@@ -5,6 +5,7 @@ import { ThemeContext } from "../layouts";
 import Blog from "../components/Blog";
 import Hero from "../components/Hero";
 import Seo from "../components/Seo";
+import "antd/dist/antd.css";
 
 class IndexPage extends React.Component {
   separator = React.createRef();
@@ -69,9 +70,9 @@ class IndexPage extends React.Component {
   }
 }
 
-IndexPage.propTypes = {
-  data: PropTypes.object.isRequired
-};
+// IndexPage.propTypes = {
+//   data: PropTypes.object.isRequired
+// };
 
 export default IndexPage;
 

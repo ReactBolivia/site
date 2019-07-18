@@ -1,7 +1,6 @@
 /* eslint no-unused-vars: 0 */
-
 import { navigate } from "gatsby";
-import { Divider, Select, Input, InputNumber, notification, Spin, Alert,Radio, Typography} from "antd";
+import { Divider, Select, Input, InputNumber, notification, Spin, Alert,Radio, Typography } from "antd";
 
 import Button from "antd/lib/button";
 import Form from "antd/lib/form";
@@ -11,8 +10,14 @@ import React from "react";
 
 import { ThemeContext } from "../../layouts";
 import axios from "axios";
+import "antd/dist/antd.min.css";
 
-// const { Text } = Typography;
+// import "antd/lib/form/style/index.css";
+// import "antd/lib/input/style/index.css";
+// import "antd/lib/button/style/index.css";
+// import "antd/lib/input-number/style/index.css";
+// import "antd/lib/spin/style/index.css";
+
 const FormItem = Form.Item;
 
 const Option = Select.Option;

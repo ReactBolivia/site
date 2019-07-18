@@ -43,7 +43,7 @@ const PostTemplate = props => {
 };
 
 PostTemplate.propTypes = {
-  data: PropTypes.object.isRequired,
+  // data: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired
 };
 

@@ -6,7 +6,7 @@ import Article from "../components/Article";
 import Sedes from "../components/Sedes/Sedes";
 import Surveyquestions from "../components/Surveys-questions/Surveysquestions";
 import Headline from "../components/Article/Headline";
-
+import "antd/dist/antd.css";
 const SurveysPage = props =>{
 	return (
     <React.Fragment>
