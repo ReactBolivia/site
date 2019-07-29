@@ -251,6 +251,6 @@ module.exports = {
       options: {
         include: /svg-icons/
       }
-    }
+    },
   ]
 };

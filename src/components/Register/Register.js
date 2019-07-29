@@ -24,6 +24,7 @@ const Option = Select.Option;
 
 class Register extends React.Component {
   state = {
+    // set to false to enable registry
     sendRegister: false
   };
 
@@ -102,8 +103,6 @@ class Register extends React.Component {
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
                 > 
-                  
-
                   <FormItem label="Seleccione el meetup que asistira:">
                     {getFieldDecorator("meetup", {
                         rules: [
@@ -182,9 +181,9 @@ class Register extends React.Component {
                       ]
                     })(<Input name="correo" />)}
                   </FormItem>
-
+                  <Alert message="Las inscripciones están cerradas" type="warning" />
                   <FormItem>
-                    <Button disabled={this.state.sendRegister} type="primary" htmlType="submit">
+                    <Button disabled={this.state.sendRegister || true} type="primary" htmlType="submit">
                       Registrarse
                     </Button>
                   </FormItem>
