@@ -1,6 +1,14 @@
 /* eslint no-unused-vars: 0 */
 import { navigate } from "gatsby";
-import { Divider, Select, Input, InputNumber, notification, Spin, Alert,Radio, Typography } from "antd";
+import { 
+  Divider, Select, Input, 
+  InputNumber, Checkbox, notification, 
+  Spin, Alert,Radio, 
+  Typography, Modal, Avatar,
+  Row, Col
+ } from "antd";
+
+import reactLogo from './react-logo.png';
 
 import Button from "antd/lib/button";
 import Form from "antd/lib/form";
@@ -12,6 +20,8 @@ import { ThemeContext } from "../../layouts";
 import axios from "axios";
 import "antd/dist/antd.min.css";
 
+import events from './events';
+
 // import "antd/lib/form/style/index.css";
 // import "antd/lib/input/style/index.css";
 // import "antd/lib/button/style/index.css";
@@ -22,10 +32,27 @@ const FormItem = Form.Item;
 
 const Option = Select.Option;
 
+const Events = ({data, selectEvent}) => {
+  if(data.length === 0) return <Alert message="No hay eventos activos" type="warning" />;
+  return(
+    data.map(e => (
+      <Radio.Button
+        onClick={() => selectEvent(e) }
+        key={e.eventId} value={e.eventId}>
+        { e.name }
+      </Radio.Button>
+    ))
+  );
+}
+
 class Register extends React.Component {
   state = {
     // set to false to enable registry
-    sendRegister: false
+    sendRegister: false,
+    acceptPrivacy: false,
+    selected: null,
+    showModal: false,
+    events: events
   };
 
   handleSubmit = event => {
@@ -38,7 +65,9 @@ class Register extends React.Component {
     });
   };
 
-  sendRegister = values => {
+  selectEvent = (data) => this.setState({ selected: data })
+
+  sendRegister = (values) => {
     let dataRegister = {
       ...values,
       eventoId: values.meetup,
@@ -49,16 +78,19 @@ class Register extends React.Component {
     axios
       .post("https://www.isoc.bo/isocbo/public/api/registro", dataRegister)
       .then(function(response) {
-        notification["success"]({
-          message: "Mensaje",
-          description: "Los datos fueron guardados con exito, muchas gracias."
-        });
-        setTimeout(() => {
-          navigate("/");
-        }, 2500);
+        if(that.state.selected.hasCost){
+          that.setState({ showModal: true });
+        }else{
+          notification["success"]({
+            message: "Mensaje",
+            description: "Los datos fueron guardados con exito, muchas gracias."
+          });
+          setTimeout(() => {
+            navigate("/");
+          }, 2500);
+        }
       })
       .catch(function(error) {
-        console.log("error Register", error);
         notification["error"]({
           message: "Mensaje",
           description:
@@ -88,9 +120,9 @@ class Register extends React.Component {
               <Spin spinning={this.state.sendRegister}>
               <Alert
                 message="Información importante"
-                description="El llenado del siguiente formulario, es con el proposito de tener los datos de
+                description="El llenado del siguiente formulario, es con el propósito de tener los datos de
                 nuestros participantes para de esa manera realizar la generación de los
-                certificados.
+                certificados digitales.
                 El correo ingresado, sera donde se enviaran los certificados."
                 type="info"
                 showIcon
@@ -114,9 +146,9 @@ class Register extends React.Component {
                         ]
                       })(
                         <Radio.Group name='meetup' style={{ width: "100%" }} buttonStyle="solid">
-                        <Radio.Button value={13}>
-                          Primeros pasos con React Workshop - Cochabamba
-                        </Radio.Button>
+                          <Events 
+                            data={this.state.events}
+                            selectEvent={this.selectEvent}/>
                       </Radio.Group>)}
                   </FormItem>
                   <FormItem label="Nombres" style={{ width: "100%" }}>
@@ -181,14 +213,70 @@ class Register extends React.Component {
                       ]
                     })(<Input name="correo" />)}
                   </FormItem>
-                  <Alert message="Las inscripciones están cerradas" type="warning" />
+                  <FormItem label="Número de celular">
+                    {getFieldDecorator("celular", {
+                      rules: [
+                        {
+                          required: true,
+                          message: "Por favor, ingrese su número de celuar",
+                          whitespace: true,
+                        }
+                      ]
+                    })(<Input name="celular" />)}
+                  </FormItem>
+                  <Form.Item>
+                    {getFieldDecorator('privacy', {
+                      valuePropName: 'checked',
+                      initialValue: false,
+                    })(<Checkbox onChange={() => this.setState({ acceptPrivacy: !this.state.acceptPrivacy })}>Acepto brindar mis datos para la organización del evento</Checkbox>)}
+                  </Form.Item>
+                  {/* <Alert message="Las inscripciones están cerradas" type="warning" /> */}
                   <FormItem>
-                    <Button disabled={this.state.sendRegister || true} type="primary" htmlType="submit">
+                    <Button disabled={this.state.sendRegister || !this.state.acceptPrivacy} type="primary" htmlType="submit">
                       Registrarse
                     </Button>
                   </FormItem>
                 </Form>
-
+                <Modal
+                  title="Felicitaciones, su registro fue realizado con éxito"
+                  visible={this.state.showModal}
+                  onOk={() => navigate("/")}
+                  onCancel={() => navigate("/")}
+                  cancelText={'Cerrar'}>
+                    { this.state.showModal && this.state.selected &&
+                    <>
+                      <Row>
+                        <Col span={2} offset={10} >
+                          <img src={reactLogo} style={{width: 64, height: 64}}/>
+                        </Col>
+                      </Row>
+                      <br/>
+                      <p>
+                        Tu registro para el evento <b>{`${this.state.selected.name}`}</b> fue realizado con éxito, el costo del evento es de: Bs.{`${this.state.selected.cost}`} con <b>cupos limitados</b> y no queremos que te pierdas esta gran oportunidad, es por eso que la comunidad React Bolivia implemento el método de pago electrónico "$imple" para verificar la asistencia de los participantes.
+                        <br/>
+                        <br/>
+                        <a href="https://www.bithumano.com/que-es-simple-el-nuevo-sistema-de-pagos-en-bolivia/" target="_blank" style={{color: '#007AFF'}}>"$imple"</a>, es un método para realizar transacciones electrónicas implementado por ASOBAN, que permite realizar cobros o pagos a través de un código QR.
+                        <br/>
+                        <br/>
+                        Si realizas el pago a través del código QR, obtendrás un <b>descuento del {`${this.state.selected.discount * 100}% es decir: Bs.${ (this.state.selected.cost) - (this.state.selected.cost * this.state.selected.discount) }`} </b>. Para realizar esta operación debes seguir los siguientes pasos:  
+                      </p>
+                      <ol style={{margin: 20}}>
+                        <li> Guarda el código QR que tienes debajo 👇 </li>
+                        <li> Entra a la aplicación móvil de tu banco y busca "Transferencias QR/Colectas", y presiona en esa opción </li>
+                        <li> Selecciona el botón "Pagar" </li>
+                        <li> Escanea el código QR que guardaste en el paso 1</li>
+                        <li> Verifica que la transacción fue realizada con éxito y <b>sácale un "screen shot" a tu recibo electrónico</b>, envía esa imagen a: <b>comunity.react.bolivia@gmail.com</b> ó al Whatsapp de los números: <b>+591 70162630</b>, <b>+591 60684585</b> con tus datos para verificar tu asistencia al evento</li>
+                      </ol>
+                      <a href={this.state.selected.qr} style={{color: '#007AFF'}} download>
+                        Descargar QR de pago
+                        <img src={this.state.selected.qr} />
+                      </a>
+                      <p>
+                        <b> AYÚDANOS A CREAR UNA CULTURA DE COMERCIO ELECTRÓNICO EN BOLIVIA Y MUCHAS GRACIAS POR EL INTERÉS EN EL EVENTO {`"${this.state.selected.name}"`}, TE ESPERAMOS</b>
+                      </p>
+                    </>
+                    }
+                </Modal>
                 {/* --- STYLES --- */}
                 <style jsx>{`
                   .form {

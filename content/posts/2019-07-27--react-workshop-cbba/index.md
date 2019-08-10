@@ -10,7 +10,7 @@ author: Pablo M. Jordan
 
 El evento, denominado "Primeros pasos con React - Workshop Cochabamba" fue realizado el pasado 27 de julio en 360 Workplace, ubicado en la ciudad de Cochabamba. Este workshop tuvo el objetivo de dar una introducción práctica a la herramienta de desarrollo web y móvil, [React JS](https://reactjs.org).
 
-Se conto con la presencia de 32 participantes, el staff de organización de la comunidad React Bolivia en Cochabamba y el apoyo de 3 organización: [AssureSoft](https://www.assuresoft.com/), [EDteam](https://ed.team) y 360 Workplace (http://360workplace.com/).
+Se conto con la presencia de 32 participantes, el staff de organización de la comunidad React Bolivia en Cochabamba y el apoyo de 3 organizaciones: [AssureSoft](https://www.assuresoft.com/), [EDteam](https://ed.team) y [360 Workplace](http://360workplace.com/).
 
 El workshop se dividió en 3 fases: 
 - Explicación de Git, instalación de dependencias y componentes presentacionales.
@@ -21,13 +21,13 @@ El workshop se dividió en 3 fases:
 
 ![beto-quiroga](./beto.JPG) 
 
-La primera ponencia, a cargo de Beto Quiroga de ED team, explicó el funcionamiento de la herramienta de versionamiento **Git** de una forma básica pues se usaría bastante a lo largo del workshop.
+La primera ponencia, a cargo de Beto Quiroga de EDteam, explicó el funcionamiento de la herramienta de versionamiento **Git** de una forma básica pues se usaría bastante a lo largo del workshop.
 
 Beto hizo una analogía de Git con un viaje en carretera: Un repositorio es como un auto que viaja en la carretera, en el momento que el auto inicia el viaje se crea repositorio añadiendo los archivos iniciales (*git init*), y a medida que el auto continúa su viaje, se van dejando rastros en ciertos puntos para poder saber como volver (*commit*), de esta forma es posible regresar a cualquier punto del camino si es necesario.
 
 ![git](./git.jpg) 
 
-# Guillermo Paredes - Componentes basados en clases, eventos y ciclo de vida
+# [Guillermo Paredes](https://www.linkedin.com/in/guillermo-david-paredes-torrez/) - Componentes basados en clases, eventos y ciclo de vida
 
 ![guillermo-paredes](./guillermo.jpeg) 
 
@@ -41,7 +41,7 @@ Guillermo Paredes, organizador de React Bolivia, continuó el taller explicando 
 Tuvimos el grato apoyo de la empresa de desarrollo de software **AssureSoft** con base en *Silicon Valley* y *Cochabamba*, que expusieron oportunidades de trabajo a los participantes, para más información enviar CV's a *careers@assuresoft.com*
 
 
-# Pablo M. Jordan - REST API, Axios y actividad práctica (generador de memes)
+# [Pablo M. Jordan](https://www.linkedin.com/in/pablo-diego-montes-jordan-30a16b117/) - REST API, Axios y actividad práctica (generador de memes)
 
 ![pablo-jordan](./pablo.JPG) 
 
