@@ -61,7 +61,7 @@ typings/
 .DS_Store
 public/
 yarn-error.log
-
+yarn.lock
 # editors
 .idea/
 .vscode

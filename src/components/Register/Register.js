@@ -258,14 +258,20 @@ class Register extends React.Component {
                         <a href="https://www.bithumano.com/que-es-simple-el-nuevo-sistema-de-pagos-en-bolivia/" target="_blank" style={{color: '#007AFF'}}>"$imple"</a>, es un método para realizar transacciones electrónicas implementado por ASOBAN, que permite realizar cobros o pagos a través de un código QR.
                         <br/>
                         <br/>
-                        Si realizas el pago a través del código QR, obtendrás un <b>descuento del {`${this.state.selected.discount * 100}% es decir: Bs.${ (this.state.selected.cost) - (this.state.selected.cost * this.state.selected.discount) }`} </b>. Para realizar esta operación debes seguir los siguientes pasos:  
+                        Si realizas el pago a través del código QR, obtendrás un <b>descuento del {`${this.state.selected.discount * 100}%, es decir: Bs.${ (this.state.selected.cost) - (this.state.selected.cost * this.state.selected.discount) }`}</b>. Para realizar esta operación debes seguir los siguientes pasos:  
                       </p>
                       <ol style={{margin: 20}}>
                         <li> Guarda el código QR que tienes debajo 👇 </li>
-                        <li> Entra a la aplicación móvil de tu banco y busca "Transferencias QR/Colectas", y presiona en esa opción </li>
-                        <li> Selecciona el botón "Pagar" </li>
-                        <li> Escanea el código QR que guardaste en el paso 1</li>
-                        <li> Verifica que la transacción fue realizada con éxito y <b>sácale un "screen shot" a tu recibo electrónico</b>, envía esa imagen a: <b>comunity.react.bolivia@gmail.com</b> ó al Whatsapp de los números: <b>+591 70162630</b>, <b>+591 60684585</b> con tus datos para verificar tu asistencia al evento</li>
+                        <li> Entra a la aplicación móvil de tu banco y busca la palabra clave "QR" o "Transferencias QR/Colectas", presiona en esa opción.</li>
+                        <li> Selecciona el botón "Pagar".</li>
+                        <li> Escanea el código QR que guardaste en el paso 1.</li>
+                        <li> Verifica que la transacción fue realizada con éxito y <b>sácale un "screen shot" a tu recibo electrónico</b>, envía esa imagen a uno de nuestros canales: 
+                          <ul>
+                            <li>Correo electrónico: <b>comunity.react.bolivia@gmail.com</b></li>
+                            <li>Whatsapp de los números: <b>+591 70162630</b>, <b>+591 60684585</b></li>
+                            <li>Messenger de la pagina <a href="http://m.me/ReactBolivia" target="_blank" style={{color: '#007AFF'}}>React Bolivia</a></li>
+                          </ul>
+                        </li>
                       </ol>
                       <a href={this.state.selected.qr} style={{color: '#007AFF'}} download>
                         Descargar QR de pago
@@ -274,6 +280,11 @@ class Register extends React.Component {
                       <p>
                         <b> AYÚDANOS A CREAR UNA CULTURA DE COMERCIO ELECTRÓNICO EN BOLIVIA Y MUCHAS GRACIAS POR EL INTERÉS EN EL EVENTO {`"${this.state.selected.name}"`}, TE ESPERAMOS</b>
                       </p>
+                      <br/>
+                      <h4>Video tutorial $imple</h4>
+                      <Row>
+                          <iframe  src="https://www.youtube.com/embed/uvoqREm_oqA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </Row>
                     </>
                     }
                 </Modal>

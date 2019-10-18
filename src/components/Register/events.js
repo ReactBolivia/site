@@ -1,11 +1,11 @@
 const events = [
     {
-        "name": "React Capital Workshop",
-        "eventId": 15,
-        "hasCost": true,
-        "qr": require('./qr-simple/react-capital-simple.png'),
-        "cost": 30,
-        "discount": 0.2
+        "name": "React Day - Cochabamba",
+        "eventId": 18,
+        "hasCost": false,
+        "qr": require('./qr-simple/reactober.png'),
+        "cost": 10,
+        "discount": 0.25
     }
 ];
 
