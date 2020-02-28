@@ -1,9 +1,9 @@
 /* eslint no-unused-vars: 0 */
 import { navigate } from "gatsby";
-import { 
-  Divider, Select, Input, 
-  InputNumber, Checkbox, notification, 
-  Spin, Alert,Radio, 
+import {
+  Divider, Select, Input,
+  InputNumber, Checkbox, notification,
+  Spin, Alert,Radio,
   Typography, Modal, Avatar,
   Row, Col
  } from "antd";
@@ -134,7 +134,7 @@ class Register extends React.Component {
                   onSubmit={e => this.handleSubmit(e)}
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
-                > 
+                >
                   <FormItem label="Seleccione el meetup que asistira:">
                     {getFieldDecorator("meetup", {
                         rules: [
@@ -146,7 +146,7 @@ class Register extends React.Component {
                         ]
                       })(
                         <Radio.Group name='meetup' style={{ width: "100%" }} buttonStyle="solid">
-                          <Events 
+                          <Events
                             data={this.state.events}
                             selectEvent={this.selectEvent}/>
                       </Radio.Group>)}
@@ -258,14 +258,14 @@ class Register extends React.Component {
                         <a href="https://www.bithumano.com/que-es-simple-el-nuevo-sistema-de-pagos-en-bolivia/" target="_blank" style={{color: '#007AFF'}}>"$imple"</a>, es un método para realizar transacciones electrónicas implementado por ASOBAN, que permite realizar cobros o pagos a través de un código QR.
                         <br/>
                         <br/>
-                        Si realizas el pago a través del código QR, obtendrás un <b>descuento del {`${this.state.selected.discount * 100}%, es decir: Bs.${ (this.state.selected.cost) - (this.state.selected.cost * this.state.selected.discount) }`}</b>. Para realizar esta operación debes seguir los siguientes pasos:  
+                        Si realizas el pago a través del código QR, obtendrás un <b>descuento del {`${this.state.selected.discount * 100}%, es decir que solo pagaras: Bs.${ (this.state.selected.cost) - (this.state.selected.cost * this.state.selected.discount) }`}</b>. Para realizar esta operación debes seguir los siguientes pasos:
                       </p>
                       <ol style={{margin: 20}}>
                         <li> Guarda el código QR que tienes debajo 👇 </li>
                         <li> Entra a la aplicación móvil de tu banco y busca la palabra clave "QR" o "Transferencias QR/Colectas", presiona en esa opción.</li>
                         <li> Selecciona el botón "Pagar".</li>
                         <li> Escanea el código QR que guardaste en el paso 1.</li>
-                        <li> Verifica que la transacción fue realizada con éxito y <b>sácale un "screen shot" a tu recibo electrónico</b>, envía esa imagen a uno de nuestros canales: 
+                        <li> Verifica que la transacción fue realizada con éxito y <b>sácale un "screen shot" a tu recibo electrónico</b>, envía esa imagen a uno de nuestros canales:
                           <ul>
                             <li>Correo electrónico: <b>comunity.react.bolivia@gmail.com</b></li>
                             <li>Whatsapp de los números: <b>+591 70162630</b>, <b>+591 60684585</b></li>
