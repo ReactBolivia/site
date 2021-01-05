@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"antd": "^3.7.0",
-		"axios": "^0.18.0",
+		"axios": "^0.21.1",
 		"email-chk": "^1.0.2",
 		"email-validator": "^2.0.4",
 		"fontfaceobserver": "^2.0.13",
